@@ -1,0 +1,124 @@
+{
+  "verified_demo": true,
+  "scenario_count": 8,
+  "results": [
+    {
+      "scenario": "verified_completion",
+      "passed": true,
+      "task_id": "8143d44b-2812-4978-80df-3ae1845ccf6e",
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "verified": true,
+      "tool_calls": 1,
+      "trace_id": "f44f28ee66ef4b5ca293f2cf300b305a"
+    },
+    {
+      "scenario": "separate_approval",
+      "passed": true,
+      "task_id": "73275917-58f5-4b4a-b741-7a1961ba7f35",
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "verified": true,
+      "tool_calls": 1,
+      "trace_id": "3e8519b23378488c87ba913d6eb4b90c"
+    },
+    {
+      "scenario": "rejection",
+      "passed": true,
+      "task_id": "53d23d65-7dad-41fb-b94e-e1d4efc1ca34",
+      "state": "REJECTED",
+      "attempts": 0,
+      "verified": false,
+      "tool_calls": 0,
+      "trace_id": "12edc87f6b84478686eb497d2c452f94"
+    },
+    {
+      "scenario": "cancellation",
+      "passed": true,
+      "task_id": "4c8b96cf-b680-4911-85bd-3f9f7f35ac61",
+      "state": "CANCELLED",
+      "attempts": 0,
+      "verified": false,
+      "tool_calls": 0,
+      "trace_id": "4ee82a8174714a5587e4bde9c1a02208"
+    },
+    {
+      "scenario": "eligible_retry",
+      "passed": true,
+      "task_id": "151391ca-5502-4d48-8e04-70a2d740cdc6",
+      "state": "SUCCEEDED",
+      "attempts": 2,
+      "verified": true,
+      "tool_calls": 2,
+      "trace_id": "21e86fcd53f34f729daa73e8448d7f34"
+    },
+    {
+      "scenario": "permanent_failure",
+      "passed": true,
+      "task_id": "3b5e6899-9a51-4e6f-b006-e40121be1553",
+      "state": "FAILED",
+      "attempts": 1,
+      "verified": false,
+      "tool_calls": 1,
+      "trace_id": "0c224e2816264974b258e2d2cef4139f"
+    },
+    {
+      "scenario": "verification_mismatch",
+      "passed": true,
+      "task_id": "8d692553-b8b9-43e0-ae68-2a800297efb2",
+      "state": "FAILED",
+      "attempts": 1,
+      "verified": false,
+      "tool_calls": 1,
+      "trace_id": "c9cbe76e5fcb40a4937cf4a2b43ff098"
+    },
+    {
+      "scenario": "pending_approval",
+      "passed": true,
+      "task_id": "608b7e7a-ac04-4fdd-9054-3c92df824f4b",
+      "state": "PENDING_APPROVAL",
+      "attempts": 0,
+      "verified": false,
+      "tool_calls": 0,
+      "trace_id": "16cb207a4099418db4ca6e7dfd9d9ddc"
+    }
+  ],
+  "overview": {
+    "counts": {
+      "CANCELLED": 1,
+      "FAILED": 2,
+      "PENDING_APPROVAL": 1,
+      "REJECTED": 1,
+      "SUCCEEDED": 3
+    },
+    "usage": {
+      "tool_calls": 6,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cost_nusd": 0,
+      "mean_tool_ms": 1.017047499999535
+    },
+    "verification": {
+      "checked": 4,
+      "passed": 3
+    },
+    "agents": [
+      {
+        "id": "fixture-worker",
+        "heartbeat": "2026-10-14T14:08:53.292842+00:00",
+        "processed": 6,
+        "rss_bytes": 56901632,
+        "cpu_seconds": 1.05,
+        "online": true
+      }
+    ],
+    "reliability": {
+      "terminal_executions": 5,
+      "verified_success_rate": 0.6
+    },
+    "accounting": "deterministic fixtures; zero model calls; shared worker resource counters"
+  },
+  "paid_model_calls": 0,
+  "unauthenticated_read_rejected": true,
+  "direct_unauthorized_controls_rejected": true
+}

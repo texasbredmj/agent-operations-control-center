@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-10-14T14:20:42.049270+00:00",
+  "app_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "environment": "fresh GitHub Codespace; default image",
+  "test_counts": {
+    "tests-host.xml": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "tests-linux.xml": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "same_suite_run_twice": true,
+  "http_scenarios": 8,
+  "chromium_scenarios": 8,
+  "restart_records_preserved": 8,
+  "duplicate_effects": 0,
+  "forwarded_login_page_loaded": true,
+  "forwarded_port_visibility": "Private",
+  "forwarded_authenticated_actions_verified": false,
+  "limitations": [
+    "Initial Docker bridge traffic timed out; service namespace override required.",
+    "Original bridge-based wheel run was interrupted; namespace-adjusted wheel run passed.",
+    "Starlette TestClient deprecation warning.",
+    "Portfolio devcontainer verification is separate."
+  ],
+  "artifacts": {
+    "compose.override.yml": "7d1cf870f1e639517b8c835d5bff58b27030e71abab74c7f66c4a0d790de8f96",
+    "tests-linux.xml": "5d47b7b18a943a08f4ac9cb5aa7de27897ab36cf3e159bb77ed4266495019db3",
+    "dashboard-mobile.png": "bb9a0afedc4bfd030a5046cc363583913983913c82e3271d38e938a70cf83d60",
+    "restart-check.json": "70cb43f5df71e0034ccfe26bc474cb1f03a9a1c09dd3700a1201d1995db69ff8",
+    "tests-host.xml": "ad650c30070e15d2e6f9684dc4d20cdc011ed8f01f0a763af6bd5c6d4aa8ddc0",
+    "browser-check.json": "3efccba728882d953d1cb2c29854a35fee9dd103f36731ee647fe7518157a5a8",
+    "http-demo.json": "4b45ccfd4ff13a410a0d61ee6bc0fd0b7c2345e2774ea1e2aab05a484e11b45b",
+    "dashboard-desktop.png": "070f3c3d6739c3978fa98a3a353994d5d88faaccc4d5b6665861ca390517851c"
+  }
+}

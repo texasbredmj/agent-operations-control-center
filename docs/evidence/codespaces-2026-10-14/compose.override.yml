@@ -1,0 +1,12 @@
+services:
+  postgres:
+    ports: [127.0.0.1:18780:8080]
+  api:
+    network_mode: service:postgres
+    ports: !reset []
+    environment:
+      DATABASE_URL: postgresql://ops:${POSTGRES_PASSWORD}@127.0.0.1:5432/ops
+  worker:
+    network_mode: service:postgres
+    environment:
+      DATABASE_URL: postgresql://ops:${POSTGRES_PASSWORD}@127.0.0.1:5432/ops

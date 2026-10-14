@@ -1,0 +1,56 @@
+{
+  "api_and_worker_restarted": true,
+  "all_records_preserved": true,
+  "database_receipts_verified": [
+    {
+      "task_id": "8143d44b-2812-4978-80df-3ae1845ccf6e",
+      "state": "SUCCEEDED",
+      "effect_count": 1,
+      "receipt_matches": true
+    },
+    {
+      "task_id": "73275917-58f5-4b4a-b741-7a1961ba7f35",
+      "state": "SUCCEEDED",
+      "effect_count": 1,
+      "receipt_matches": true
+    },
+    {
+      "task_id": "53d23d65-7dad-41fb-b94e-e1d4efc1ca34",
+      "state": "REJECTED",
+      "effect_count": 0,
+      "receipt_matches": true
+    },
+    {
+      "task_id": "4c8b96cf-b680-4911-85bd-3f9f7f35ac61",
+      "state": "CANCELLED",
+      "effect_count": 0,
+      "receipt_matches": true
+    },
+    {
+      "task_id": "151391ca-5502-4d48-8e04-70a2d740cdc6",
+      "state": "SUCCEEDED",
+      "effect_count": 1,
+      "receipt_matches": true
+    },
+    {
+      "task_id": "3b5e6899-9a51-4e6f-b006-e40121be1553",
+      "state": "FAILED",
+      "effect_count": 0,
+      "receipt_matches": true
+    },
+    {
+      "task_id": "8d692553-b8b9-43e0-ae68-2a800297efb2",
+      "state": "FAILED",
+      "effect_count": 1,
+      "receipt_matches": true
+    },
+    {
+      "task_id": "608b7e7a-ac04-4fdd-9054-3c92df824f4b",
+      "state": "PENDING_APPROVAL",
+      "effect_count": 0,
+      "receipt_matches": true
+    }
+  ],
+  "duplicate_effects": 0,
+  "paid_model_calls": 0
+}

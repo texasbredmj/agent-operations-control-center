@@ -1,0 +1,49 @@
+{
+  "verified_browser": true,
+  "browser": "Chromium / Playwright 1.58.0",
+  "scenario_count": 8,
+  "results": [
+    {
+      "scenario": "invalid_login_rejected",
+      "passed": true
+    },
+    {
+      "scenario": "create_and_inspect_verified_task",
+      "passed": true
+    },
+    {
+      "scenario": "inspect_workflow_tools_and_real_spans",
+      "passed": true
+    },
+    {
+      "scenario": "cancel_from_dashboard",
+      "passed": true
+    },
+    {
+      "scenario": "retry_eligible_failure_from_dashboard",
+      "passed": true
+    },
+    {
+      "scenario": "approve_and_reject_from_dashboard",
+      "passed": true
+    },
+    {
+      "scenario": "all_required_views_and_viewer_restrictions",
+      "passed": true
+    },
+    {
+      "scenario": "responsive_layout_and_memory_only_session",
+      "passed": true
+    }
+  ],
+  "uncaught_page_errors": [],
+  "viewport_desktop": [
+    1440,
+    1050
+  ],
+  "viewport_mobile": [
+    390,
+    844
+  ],
+  "paid_model_calls": 0
+}
