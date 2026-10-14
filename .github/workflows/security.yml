@@ -1,0 +1,26 @@
+name: optional-live-security-scan
+on: [workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  dependency-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install pip-audit==2.10.1
+      - run: mkdir -p .gates
+      - run: python -m pip_audit -r requirements.lock --no-deps --disable-pip --format json --output .gates/python-audit.json
+      - run: npm ci --ignore-scripts && npm audit --audit-level=high --json > ../.gates/frontend-audit.json
+        working-directory: frontend
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-evidence
+          path: .gates/*audit.json

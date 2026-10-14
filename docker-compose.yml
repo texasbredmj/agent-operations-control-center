@@ -1,0 +1,68 @@
+name: lab-ops08
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ops
+      POSTGRES_DB: ops
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run python scripts/init_local.py}
+    ports: [127.0.0.1:15438:5432]
+    volumes: [ops-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD, pg_isready, -U, ops, -d, ops]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://ops:${POSTGRES_PASSWORD}@postgres:5432/ops
+      OPS_CREDENTIALS: ${OPS_CREDENTIALS:?Run python scripts/init_local.py}
+    ports: [127.0.0.1:18780:8080]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    read_only: true
+    tmpfs: [/tmp:size=64m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8080/healthz',timeout=2)"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+  worker:
+    build: .
+    command: [python, -m, ops_center.worker]
+    environment:
+      DATABASE_URL: postgresql://ops:${POSTGRES_PASSWORD}@postgres:5432/ops
+      OPS_CREDENTIALS: ${OPS_CREDENTIALS}
+    depends_on:
+      api:
+        condition: service_healthy
+    read_only: true
+    tmpfs: [/tmp:size=64m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+  browser:
+    profiles: [verification]
+    build:
+      context: .
+      dockerfile: Dockerfile.browser
+    image: ops08-browser:local
+    network_mode: service:api
+    environment:
+      OPS_ORIGIN: http://localhost:8080
+    volumes:
+      - ./scripts:/verification/scripts:ro
+      - ./.env:/verification/.env:ro
+      - ./.gates:/verification/.gates
+    depends_on:
+      api:
+        condition: service_healthy
+    shm_size: 256m
+    mem_limit: 1g
+volumes:
+  ops-data:

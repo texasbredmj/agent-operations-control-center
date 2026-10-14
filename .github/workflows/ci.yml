@@ -1,0 +1,56 @@
+name: operations-control-center
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  policy-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.12', '3.14']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements.lock .
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: python -m pytest tests/test_contracts.py -q
+  full-stack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r requirements.lock .
+      - run: npm ci --ignore-scripts
+        working-directory: frontend
+      - run: npx prettier --check src index.html package.json package-lock.json
+        working-directory: frontend
+      - run: npm run build
+        working-directory: frontend
+      - run: python scripts/init_local.py
+      - run: docker compose up -d --build --wait
+      - run: python scripts/test_local.py -q --junitxml=.gates/tests-host.xml
+      - run: python scripts/test_container.py
+      - run: python scripts/demo.py
+      - run: python scripts/verify_restart.py
+      - run: docker compose --profile verification run --build --rm browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: operations-evidence
+          path: .gates/
+          include-hidden-files: true
+          retention-days: 14
+      - run: docker compose --profile verification down
+        if: always()

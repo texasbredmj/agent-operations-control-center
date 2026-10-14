@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "agent-operations-control-center"
+version = "0.1.0"
+description = "Authorized operations console for durable, independently verified fixture tasks"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1", "pydantic>=2.10,<3", "uvicorn>=0.34,<1", "psycopg[binary]>=3.2,<4", "opentelemetry-sdk>=1.30,<2", "psutil>=6,<9"]
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1", "ruff>=0.11,<1"]
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.setuptools.package-data]
+ops_center = ["schema.sql"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+[tool.ruff.lint.per-file-ignores]
+"src/ops_center/api.py" = ["B008"]
