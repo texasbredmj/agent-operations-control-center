@@ -32,6 +32,8 @@ it again appends another scenario set; it does not reset the database. The confi
 accepts at most 1,000 tasks, serialized in PostgreSQL. PostgreSQL binds only localhost port 15438.
 `docker compose down` stops this lab and preserves its named database volume.
 
+[Desktop dashboard](docs/images/dashboard-desktop.png) · [Mobile dashboard](docs/images/dashboard-mobile.png)
+
 ## Observe and control
 
 The sidebar provides active/completed/failed tasks, pending approvals, workflow and tool-call history,

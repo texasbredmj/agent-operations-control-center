@@ -1293,3 +1293,18 @@ footer {
     color: #65758a;
   }
 }
+@media (max-width: 760px) {
+  .topbar > span {
+    white-space: nowrap;
+  }
+  .topbar > div {
+    font-size: 0;
+  }
+  .topbar .top-role {
+    font-size: 10px;
+  }
+  .mobile-signout {
+    white-space: nowrap;
+    font-size: 10px;
+  }
+}

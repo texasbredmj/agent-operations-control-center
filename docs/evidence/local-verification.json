@@ -1,0 +1,307 @@
+{
+  "project": 8,
+  "name": "agent-operations-control-center",
+  "verified_at": "2026-10-14T07:15:20.310501+00:00",
+  "published": false,
+  "remote_ci_verified": false,
+  "checkpoint_complete": false,
+  "windows": {
+    "python": "3.14.6",
+    "installation": "regular wheel in fresh venv",
+    "junit": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "13b7da049db3cf2ce3849838599e5d64826556a930d53a2ef67c0d49fe7d7331"
+    }
+  },
+  "linux": {
+    "python_series": "3.12",
+    "installation": "regular wheel in nonroot Docker container; read-only test source",
+    "junit": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "e244623776892b0e6f624f09e7390dd2563fef7e6e1cc6d6ce62959d421bbb3a"
+    }
+  },
+  "http_demo": {
+    "verified_demo": true,
+    "scenario_count": 8,
+    "results": [
+      {
+        "scenario": "verified_completion",
+        "passed": true,
+        "task_id": "8026a130-3439-47c1-965d-adfce3832240",
+        "state": "SUCCEEDED",
+        "attempts": 1,
+        "verified": true,
+        "tool_calls": 1,
+        "trace_id": "78aff819e92e4ec783102fb4edb67bd6"
+      },
+      {
+        "scenario": "separate_approval",
+        "passed": true,
+        "task_id": "cbba675b-7c80-4e7f-89f2-2aa86ae1e811",
+        "state": "SUCCEEDED",
+        "attempts": 1,
+        "verified": true,
+        "tool_calls": 1,
+        "trace_id": "0b5754dd348e4803b616c956f6019c76"
+      },
+      {
+        "scenario": "rejection",
+        "passed": true,
+        "task_id": "d05f83e7-4743-408c-b987-19205e8e9f72",
+        "state": "REJECTED",
+        "attempts": 0,
+        "verified": false,
+        "tool_calls": 0,
+        "trace_id": "e0c8ae72ab0f4f6d946706c88e56730b"
+      },
+      {
+        "scenario": "cancellation",
+        "passed": true,
+        "task_id": "0385c052-167b-4aa2-94cc-abee2a3cafd5",
+        "state": "CANCELLED",
+        "attempts": 0,
+        "verified": false,
+        "tool_calls": 0,
+        "trace_id": "89d897aeaaf8404d80ef69e90a59c428"
+      },
+      {
+        "scenario": "eligible_retry",
+        "passed": true,
+        "task_id": "5c913524-0c1a-423f-bc9b-8d44095c3ae4",
+        "state": "SUCCEEDED",
+        "attempts": 2,
+        "verified": true,
+        "tool_calls": 2,
+        "trace_id": "880b5adacca042bcbbca9fa18498ab5d"
+      },
+      {
+        "scenario": "permanent_failure",
+        "passed": true,
+        "task_id": "9636a107-5147-4cc6-ab32-369248fa146e",
+        "state": "FAILED",
+        "attempts": 1,
+        "verified": false,
+        "tool_calls": 1,
+        "trace_id": "6d4d9aa4f1ab4f76ab549acb8aa0300f"
+      },
+      {
+        "scenario": "verification_mismatch",
+        "passed": true,
+        "task_id": "6097e278-1502-4147-b87c-aec4f610b3a3",
+        "state": "FAILED",
+        "attempts": 1,
+        "verified": false,
+        "tool_calls": 1,
+        "trace_id": "476e76baf15941f885553218e633be68"
+      },
+      {
+        "scenario": "pending_approval",
+        "passed": true,
+        "task_id": "2953ac5c-2d11-41e6-a7ff-32dfa789845c",
+        "state": "PENDING_APPROVAL",
+        "attempts": 0,
+        "verified": false,
+        "tool_calls": 0,
+        "trace_id": "123e65c9709046f39263f9145d903efc"
+      }
+    ],
+    "overview": {
+      "counts": {
+        "CANCELLED": 1,
+        "FAILED": 2,
+        "PENDING_APPROVAL": 1,
+        "REJECTED": 1,
+        "SUCCEEDED": 3
+      },
+      "usage": {
+        "tool_calls": 6,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_nusd": 0,
+        "mean_tool_ms": 2.030112833987611
+      },
+      "verification": {
+        "checked": 4,
+        "passed": 3
+      },
+      "agents": [
+        {
+          "id": "fixture-worker",
+          "heartbeat": "2026-10-14T07:01:26.896634+00:00",
+          "processed": 6,
+          "rss_bytes": 61095936,
+          "cpu_seconds": 7.88,
+          "online": true
+        }
+      ],
+      "reliability": {
+        "terminal_executions": 5,
+        "verified_success_rate": 0.6
+      },
+      "accounting": "deterministic fixtures; zero model calls; shared worker resource counters"
+    },
+    "paid_model_calls": 0,
+    "unauthenticated_read_rejected": true,
+    "direct_unauthorized_controls_rejected": true
+  },
+  "browser_verification": {
+    "verified_browser": true,
+    "browser": "Chromium / Playwright 1.58.0",
+    "scenario_count": 8,
+    "results": [
+      {
+        "scenario": "invalid_login_rejected",
+        "passed": true
+      },
+      {
+        "scenario": "create_and_inspect_verified_task",
+        "passed": true
+      },
+      {
+        "scenario": "inspect_workflow_tools_and_real_spans",
+        "passed": true
+      },
+      {
+        "scenario": "cancel_from_dashboard",
+        "passed": true
+      },
+      {
+        "scenario": "retry_eligible_failure_from_dashboard",
+        "passed": true
+      },
+      {
+        "scenario": "approve_and_reject_from_dashboard",
+        "passed": true
+      },
+      {
+        "scenario": "all_required_views_and_viewer_restrictions",
+        "passed": true
+      },
+      {
+        "scenario": "responsive_layout_and_memory_only_session",
+        "passed": true
+      }
+    ],
+    "uncaught_page_errors": [],
+    "viewport_desktop": [
+      1440,
+      1050
+    ],
+    "viewport_mobile": [
+      390,
+      844
+    ],
+    "paid_model_calls": 0
+  },
+  "restart_verification": {
+    "api_and_worker_restarted": true,
+    "all_records_preserved": true,
+    "database_receipts_verified": [
+      {
+        "task_id": "8026a130-3439-47c1-965d-adfce3832240",
+        "state": "SUCCEEDED",
+        "effect_count": 1,
+        "receipt_matches": true
+      },
+      {
+        "task_id": "cbba675b-7c80-4e7f-89f2-2aa86ae1e811",
+        "state": "SUCCEEDED",
+        "effect_count": 1,
+        "receipt_matches": true
+      },
+      {
+        "task_id": "d05f83e7-4743-408c-b987-19205e8e9f72",
+        "state": "REJECTED",
+        "effect_count": 0,
+        "receipt_matches": true
+      },
+      {
+        "task_id": "0385c052-167b-4aa2-94cc-abee2a3cafd5",
+        "state": "CANCELLED",
+        "effect_count": 0,
+        "receipt_matches": true
+      },
+      {
+        "task_id": "5c913524-0c1a-423f-bc9b-8d44095c3ae4",
+        "state": "SUCCEEDED",
+        "effect_count": 1,
+        "receipt_matches": true
+      },
+      {
+        "task_id": "9636a107-5147-4cc6-ab32-369248fa146e",
+        "state": "FAILED",
+        "effect_count": 0,
+        "receipt_matches": true
+      },
+      {
+        "task_id": "6097e278-1502-4147-b87c-aec4f610b3a3",
+        "state": "FAILED",
+        "effect_count": 1,
+        "receipt_matches": true
+      },
+      {
+        "task_id": "2953ac5c-2d11-41e6-a7ff-32dfa789845c",
+        "state": "PENDING_APPROVAL",
+        "effect_count": 0,
+        "receipt_matches": true
+      }
+    ],
+    "duplicate_effects": 0,
+    "paid_model_calls": 0
+  },
+  "security_scans": {
+    "python_packages_audited": 30,
+    "python_vulnerabilities": 0,
+    "frontend_vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "python_report_sha256": "75b6a8015a7bd703aaa8416f7a62822e0122422852e885b082b64bf06578de96",
+    "frontend_report_sha256": "f468af221303095ade8cd6553eb1c8b34bfcd80df873bb9a7cfb314105876381"
+  },
+  "paid_model_calls": 0,
+  "source_sha256": {
+    ".github/workflows/ci.yml": "8c4e48f31aa35260cbd05b9898f96b48b2d71715dd41db6fc1623b72f242ed64",
+    ".github/workflows/security.yml": "301a8908430a3fa23bf5fb7c83c1535b778e6cab74a4921939ea76af3ef1a316",
+    "docker-compose.yml": "648536b60a6ed1198cde0cb5cccb9635de7a0edaf5d64467c9f8fdc66b8b5cbc",
+    "Dockerfile": "539eba1a4883ca46e3699d001a0372060fe67d2601f1a9ceba4c9cfca6e9944e",
+    "Dockerfile.browser": "4f15d88137635fd78aecf3c487cd252b224775959264bcaca2fc038a4706729a",
+    "frontend/index.html": "cbe9208ee94cee804bef683ab6e4b9ad1a7cea300bb84c174a1261721c8b07e1",
+    "frontend/package-lock.json": "c28845167213d31cd8e90af15cbb121e82dd6ed730289237a060e0e123af75c5",
+    "frontend/package.json": "60307690ac4dd528759f3f76ea99cb350d2f907be03ffacd54c048b2da575bcb",
+    "frontend/src/api.js": "261598be78abf1ea8107eb8528f3a7bf95b5291dfa802db95cfcea837a5e5ea3",
+    "frontend/src/main.jsx": "dc1c1ea80654672ea7c1aa6f8c597b41a69b402943e0d1011151c900a0793cef",
+    "frontend/src/style.css": "ff4e79c13a936b204f868c2276c26dc81c27b8d8d0e9431991e04a2045535803",
+    "pyproject.toml": "1572c401e5bf563709ebca8d5d9a9f55001ec4a8370088cdeba901aa6bc41a30",
+    "requirements.lock": "a54c8394d6728640eb182f480c902906d7d8676383190a1781d7f523531f29e4",
+    "scripts/browser_check.py": "ab6908244987aa5d21f0a28584d6aa292214b59730017db15bc06bf08d524e04",
+    "scripts/demo.py": "34897464b7952d1e61946e9cef9afad0fd98698a768c9d2ec72975eba3b80b59",
+    "scripts/init_local.py": "cb7031707a82f85c209c9b0fd08ab8b15a5e0626ceb492e2587c3e107f3ad70f",
+    "scripts/local_env.py": "46c681332dd89f92c436727fe6019ccae7c2802d67f17526061291f281af9df4",
+    "scripts/test_container.py": "c99c1e3019e7b9563e8a01cd829248e1c3ad4e1548767d83eae3d5abc481f2e6",
+    "scripts/test_local.py": "8abece6333f64ae2d3f8506af70a954df5f070459125b5e4ba4cc9518b079307",
+    "scripts/verify_restart.py": "415cd529a9ffd95056c59ec459c66cb406c99b71c8a8557fb50a4ad1bc8353af",
+    "src/ops_center/__init__.py": "cc5ce73c425ac7c861268a39960caae1aac8035136820a4920ae52e9427aff9f",
+    "src/ops_center/api.py": "7b82322048f1deef0d0d2b031efe4f3c404956ffd48a3cb2d1aac55bbb5e00d8",
+    "src/ops_center/config.py": "3f953d8a941068fb8804e9bc4ad90cf0711c511067c97d7ad21b5da650041ebf",
+    "src/ops_center/schema.sql": "46eb61d1c8bc2c42eedc51b8cfbdc1cd06b8afe58464c0d7c816cf23dd1b85f3",
+    "src/ops_center/store.py": "6f33ba8a41d1d8921365e439ba57b95ba0f5db58aeb0d6435bab6812c5e3e9ba",
+    "src/ops_center/telemetry.py": "0b2dc04e82862fcc0697c18f12f8a7784e0c6533f5bd10e609e1587cc41938c5",
+    "src/ops_center/worker.py": "5402bba078be721a687c52899bc8b9ca32bdb990439582b7b5377f4f13ffe8c9",
+    "tests/conftest.py": "e1cf8bbea6a8f81de834852c8804a71df157ec37514a8e8cb93e76a5b2d64c6f",
+    "tests/test_contracts.py": "5a19b3b577facd1986b633212f789341d1cf7cf4fee5128294ba69ec73e32900",
+    "tests/test_operations.py": "bb6ecbdaaf6d56105eec4b1184b314f19baa5190ba15327f0f4c15d7e0ed554f",
+    "tests/test_safety.py": "7c913befd08eb1b689d87aabcb4ed178c6208c0c31c73b1d239fb0a656e3e25c"
+  }
+}
