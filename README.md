@@ -1,5 +1,14 @@
 # Agent Operations Control Center
 
+## Start Here
+
+[Launch the complete employer demonstration on GitHub](https://github.com/texasbredmj/ai-engineering-portfolio#start-here).
+
+The public portfolio contains this project's runnable employer source, sample fixtures and verified demonstration, plus one Codespaces launch for all eight projects. No separate private-repository access is required. Run `python scripts/project_demo.py 8` from the portfolio Codespace to demonstrate this project.
+
+The instructions below describe this repository's standalone version. The integrated platform and its current verification evidence are maintained in the portfolio.
+
+
 Project 08 of AI Systems Engineering Lab. **Relay** is a functioning React operations dashboard with
 a FastAPI control plane, PostgreSQL task/approval/audit storage, a deterministic worker and persisted
 OpenTelemetry spans. An operator can observe work, investigate receipts and safely control execution.
